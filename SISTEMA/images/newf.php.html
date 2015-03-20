@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost/TESIS/documentos/newf.php?n=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	        
+
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./newf.php_files/main.css">
+		<link rel="stylesheet" href="http://localhost/TESIS/css/log.css">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://localhost/TESIS/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./newf.php_files/datatables.css">
+
+		<link href="./newf.php_files/jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript" src="./newf.php_files/jquery.min.js"></script>
+		<script type="text/javascript" src="./newf.php_files/jquery-ui.min.js"></script>
+		<script>
+			// autcompletar
+			$(document).ready(function(){
+			    $("#nombre").autocomplete({
+			        source: "buscarcli.php",
+			        minLength: 2
+			    });
+			 
+			    $("#nombre").focusout(function(){
+			        $.ajax({
+			            url:'cli.php',
+			            type:'POST',
+			            dataType:'json',
+			            data:{nombre:$('#nombre').val()}
+			        }).done(function(respuesta){
+			            $("#rif").val(respuesta.rif);
+			            $("#direc").val(respuesta.direc);
+			            $("#tlf").val(respuesta.tlf);
+				    });
+				});
+			});
+			// autcompletar
+
+		</script>
+	</head>
+<body>
+ 	
+ 			<style type="text/css">
+			body {
+		    background-image: url("../images/bg.jpg");
+		    background-color: #cccccc;
+			}
+		</style>
+				<header class="navbar-inverse" role="banner">
+		<div class="container">
+			<nav role="navigation">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="http://localhost/TESIS/index.php"><img src="./newf.php_files/logo1.png" style="width: 43px;margin-top: -9px;"> Todo Textil, C.A. </a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        
+			        <li class="active"><a href="http://localhost/TESIS/index.php">Inicio</a></li>
+			        
+			        <li class="dropdown">
+			          <a href="http://localhost/TESIS/documentos/newf.php?n=1#" class="dropdown-toggle" data-toggle="dropdown">Archivo<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="http://localhost/TESIS/registros/cliente.php">Clientes</a></li>
+			            <li><a href="http://localhost/TESIS/registros/prov.php">Proveedores</a></li>			            
+			            <li class="divider"></li>
+			            <li><a href="http://localhost/TESIS/registros/prod.php">Productos</a></li>
+			            <li><a href="http://localhost/TESIS/documentos/prod.php">Categorias</a></li>
+			            <li><a href="http://localhost/TESIS/documentos/prod.php">Sub-categorias</a></li>
+
+			          </ul>
+			        </li>
+			       
+			       <li class="dropdown">
+			          <a href="http://localhost/TESIS/documentos/newf.php?n=1#" class="dropdown-toggle" data-toggle="dropdown">Documentos<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="http://localhost/TESIS/documentos/factura.php">Facturas</a></li>
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Cotizaciones</a></li>			       
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Orden de compra</a></li>			       
+			            <li class="divider"></li>
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Something else here</a></li>
+			          </ul>
+			        </li>
+
+			        <li class="dropdown">
+			          <a href="http://localhost/TESIS/documentos/newf.php?n=1#" class="dropdown-toggle" data-toggle="dropdown">Reportes<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Inventario</a></li>
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Facturación</a></li>			       
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Pedidos</a></li>			       
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Ventas mensuales</a></li>
+			          </ul>
+			        </li>
+
+			        <li class="dropdown">
+			          <a href="http://localhost/TESIS/documentos/newf.php?n=1#" class="dropdown-toggle" data-toggle="dropdown">Configuración<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Cuentas</a></li>
+			            <li><a href="http://localhost/TESIS/documentos/newf.php?n=1#">Acerca de</a></li>			       
+
+			          </ul>
+			        </li>
+					
+			      </ul>
+			      <ul class="nav navbar-nav navbar-right">
+            		<li><a href="http://localhost/TESIS/documentos/logout.php" style="color: rgb(231, 150, 28)">Bienvenido admin. Cerrar sesión</a></li>
+          		</ul> 
+			    </div><!-- /.navbar-collapse -->
+
+			  </div><!-- /.container-fluid -->
+			</nav>
+		</div>
+	</header>
+	
+
+	<div class="container">
+
+		<div class="row ">
+		<div class="col-md-5">
+			<h1 style="color: rgb(176, 136, 96);">Factura</h1><h3>Num 000156</h3>
+		</div>
+		
+		<div class="panel panel-default">
+		<div class="panel-heading">Datos del cliente </div>
+			<br>
+			<div class="col-xs-4">
+				<input class="form-control ui-autocomplete-input" placeholder="Nombre" type="text" name="nombre" id="nombre" value="" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+			</div>
+
+	  		<div class="col-xs-4">
+				<input class="form-control" placeholder="RIF" type="text" name="rif" id="rif" value="">
+			</div>
+
+			<div class="col-xs-4">
+				<input class="form-control" placeholder="telefono" type="text" name="tlf" id="tlf" value="">
+			
+			 </div>
+			 <br>
+			 <br>
+			 <div class="col-xs-3">
+			<textarea class="form-control" placeholder="Direccion" name="direc" id="direc" rows="3"></textarea>
+			 </div>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+			 </div>
+		<br>
+
+			<table width="100%" class="table table-bordered table-hover">
+	        <thead>
+	            <tr>
+	                <th width="auto">N°</th>
+	                <th width="auto">Cliente</th>
+	                <th width="auto">Fecha</th>
+	                <th width="auto">Status</th>
+	                <th width="auto">Total</th>
+	                <th width="auto">Opciones</th>
+	            </tr>
+	        </thead>
+			<tbody>
+				
+	        				<tr>
+	        					<td>1</td><td>Clariant,S.A.</td><td>J-00046078-7</td><td>Av. Anton phillips, Edif. Clariant, Zona Industrial San Vicente I. Maracat, Edo. Aragua. Aptado. 34.</td><td>(0243) 5503259</td><td><a href="http://localhost/TESIS/documentos/edit.php?id=1&n=1">Modificar </a>
+			        			<a href="http://localhost/TESIS/documentos/delete.php?id=1&n=1" onclick="return confirmation()">Eliminar</a></td>
+	        			    </tr>			</tbody>
+
+			</table>
+
+			</div>
+
+			</div>
+
+		<!-- jQuery -->
+		<script type="text/javascript" charset="utf8" src="./newf.php_files/jquery.formatCurrency-1.4.0.js"></script>
+
+		
+
+		<!-- bootstrap -->
+		<script src="./newf.php_files/bootstrap.min.js"></script>
+		<!-- DataTables -->
+		<script type="text/javascript" charset="utf8" src="./newf.php_files/jquery.dataTables.min.js"></script>
+		<script src="./newf.php_files/dataTables.bootstrap.js"></script>
+		<script src="./newf.php_files/textext.core.js"></script>
+		<script src="./newf.php_files/textext.plugin.ajax.js"></script>
+
+		<script type="text/javascript">
+		$(document).ready( function () {
+		    $('#table_id').DataTable();
+		} );
+
+
+
+
+		function applyFormatCurrency(sender) {
+		    $(sender).formatCurrency({
+		        roundToDecimalPlace: -1
+		    });
+		}
+        </script>
+		
+
+
+
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul></body></html>
